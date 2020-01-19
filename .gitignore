@@ -35,5 +35,3 @@ config/local/web.php
 web/uploads
 web/assets
 runtime
-
-test

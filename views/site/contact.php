@@ -8,61 +8,79 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\captcha\Captcha;
 
-$this->title = 'Contact';
+$this->title = 'Контакты';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-contact">
-    <h1><?= Html::encode($this->title) ?></h1>
 
-    <?php if (Yii::$app->session->hasFlash('contactFormSubmitted')): ?>
-
-        <div class="alert alert-success">
-            Thank you for contacting us. We will respond to you as soon as possible.
-        </div>
-
-        <p>
-            Note that if you turn on the Yii debugger, you should be able
-            to view the mail message on the mail panel of the debugger.
-            <?php if (Yii::$app->mailer->useFileTransport): ?>
-                Because the application is in development mode, the email is not sent but saved as
-                a file under <code><?= Yii::getAlias(Yii::$app->mailer->fileTransportPath) ?></code>.
-                Please configure the <code>useFileTransport</code> property of the <code>mail</code>
-                application component to be false to enable email sending.
-            <?php endif; ?>
-        </p>
-
-    <?php else: ?>
-
-        <p>
-            If you have business inquiries or other questions, please fill out the following form to contact us.
-            Thank you.
-        </p>
-
-        <div class="row">
-            <div class="col-lg-5">
-
-                <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
-
-                    <?= $form->field($model, 'name')->textInput(['autofocus' => true]) ?>
-
-                    <?= $form->field($model, 'email') ?>
-
-                    <?= $form->field($model, 'subject') ?>
-
-                    <?= $form->field($model, 'body')->textarea(['rows' => 6]) ?>
-
-                    <?= $form->field($model, 'verifyCode')->widget(Captcha::className(), [
-                        'template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-6">{input}</div></div>',
-                    ]) ?>
-
-                    <div class="form-group">
-                        <?= Html::submitButton('Submit', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
+<div class="home" style="height: 60vh">
+    <div class="background_image" style="background-image:url(images/contacts.jpg)"></div>
+    <div class="home_container">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="home_content text-center">
+                        <h1 class="home_title">
+                            <?= Yii::t('app', 'Наши контакты');?>
+                        </h1>
                     </div>
-
-                <?php ActiveForm::end(); ?>
-
+                </div>
             </div>
         </div>
+    </div>
+</div>
 
-    <?php endif; ?>
+<div class="contact">
+    <div class="container">
+        <div class="row">
+
+            <!-- Contact Content -->
+            <div class="col-lg-6">
+                <div class="contact_content">
+                    <div class="contact_title"><h2>Наш адрес</h2></div>
+                    <div class="contact_list">
+                        <ul>
+                            <li>Украина</li>
+                            <li>г.Одесса</li>
+                            <?php foreach (\app\helpers\Params::phones() as $phone):?>
+                                <li><?= $phone;?></li>
+                            <?php endforeach;?>
+                        </ul>
+                    </div>
+                    <div class="contact_form_container">
+                        <form action="#" class="contact_form" id="contact_form">
+                            <div class="row">
+                                <div class="col-md-6 input_container">
+                                    <input type="text" class="contact_input" placeholder="Ваше имя" required="required">
+                                </div>
+                                <div class="col-md-6 input_container">
+                                    <input type="email" class="contact_input" placeholder="Ваш email" required="required">
+                                </div>
+                            </div>
+                            <div class="input_container"><input type="text" class="contact_input" placeholder="Тема"></div>
+                            <div class="input_container"><textarea class="contact_input contact_textarea" placeholder="Сообщение" required="required"></textarea></div>
+                            <button class="contact_button">Отправить</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Google Map -->
+            <div class="col-xl-5 col-lg-6 offset-xl-1">
+                <div class="contact_map">
+
+                    <!-- Google Map -->
+
+                    <div class="map">
+                        <div id="google_map" class="google_map">
+                            <div class="map_container">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d6534.745899331288!2d30.73566223863824!3d46.47797134384249!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2sua!4v1579964382497!5m2!1sru!2sua" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
 </div>
