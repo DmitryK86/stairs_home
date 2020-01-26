@@ -45,6 +45,7 @@ foreach ($runtimeDirs as $runtimeDir ) {
 // Creating missing resource directories
 $resourceDirs = [
     "web/uploads",
+    "web/assets",
 ];
 foreach ($resourceDirs as $resourceDir ) {
     $dir = $appRootDir . "/" . $resourceDir;
