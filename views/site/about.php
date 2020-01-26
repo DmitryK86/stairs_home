@@ -21,17 +21,17 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="my-flex">
                             <div class="booking_input_custom">
                                 <a href="#stairs">
-                                    <?= Yii::t('app', 'Лестницы внутренние');?>
-                                </a>
-                            </div>
-                            <div class="booking_input_custom">
-                                <a href="#stairs-outside">
-                                    <?= Yii::t('app', 'Лестницы наружные');?>
+                                    <?= Yii::t('app', 'Лестницы');?>
                                 </a>
                             </div>
                             <div class="booking_input_custom">
                                 <a href="#gazebo">
                                     <?= Yii::t('app', 'Беседки');?>
+                                </a>
+                            </div>
+                            <div class="booking_input_custom">
+                                <a href="#house">
+                                    <?= Yii::t('app', 'Дома');?>
                                 </a>
                             </div>
                         </div>
@@ -168,43 +168,6 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
 </div>
 
-<a name="stairs-outside" class="anchor-link"></a>
-
-<div class="custom_elements_title">
-    <h2>
-        <?= Yii::t('app', 'Наружные лестницы');?>
-    </h2>
-</div>
-
-<div class="blog">
-    <!-- Blog Slider -->
-    <div class="blog_slider_container">
-        <div class="owl-carousel owl-theme blog_slider">
-
-            <!-- Slide -->
-            <div class="blog_slide">
-                <div class="background_image colorbox-outside-1" href="/images/stairs_outside/stairs1/1.jpg" style="background-image:url(images/stairs_outside/stairs1/1.jpg)"></div>
-                <div class="blog_content">
-                    <div class="blog_date"><a href="#">Март 2019</a></div>
-                    <div class="blog_title">
-                        Спиральная лестница
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-<!--    <div class="items hidden">
-        <div class="gallery_item">
-            <a class="colorbox-outside-1" href="/images/stairs_outside/stairs1/2.jpg"></a>
-        </div>
-        <div class="gallery_item">
-            <a class="colorbox-outside-1" href="/images/stairs_outside/stairs1/3.jpg"></a>
-        </div>
-    </div>-->
-</div>
-
 <a name="gazebo" class="anchor-link"></a>
 
 <div class="custom_elements_title">
@@ -242,6 +205,15 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
 </div>
 
+<a name="house" class="anchor-link"></a>
+
+<div class="custom_elements_title">
+    <h2>
+        <?= Yii::t('app', 'Дома');?>
+    </h2>
+</div>
+
+
 <?php $this->registerJs("
 $('.colorbox-1').colorbox({
     rel:'gal-1',
@@ -268,13 +240,6 @@ $('.colorbox-5').colorbox({
     maxWidth:'95%',
     maxHeight:'95%'
 });
-
-$('.colorbox-outside-1').colorbox({
-    rel:'gal-outside-1',
-    maxWidth:'95%',
-    maxHeight:'95%'
-});
-
 
 $('.colorbox-gazebo-1').colorbox({
     rel:'gal-gazebo-1',

@@ -17,20 +17,10 @@ $this->title = Yii::t('app', 'Главная');
                             <?= Yii::t('app', 'Лестницы под ключ');?>
                         </h1>
                         <div class="my-flex">
-                            <div class="booking_input_custom">
-                                <a href="<?= Url::to(['site/about', '#' => 'stairs']);?>">
-                                    <?= Yii::t('app', 'Лестницы внутренние');?>
-                                </a>
-                            </div>
-                            <div class="booking_input_custom">
-                                <a href="<?= Url::to(['site/about', '#' => 'stairs-outside']);?>">
-                                    <?= Yii::t('app', 'Лестницы наружные');?>
-                                </a>
-                            </div>
-                            <div class="booking_input_custom">
-                                <a href="<?= Url::to(['site/about', '#' => 'gazebo']);?>">
-                                    <?= Yii::t('app', 'Беседки');?>
-                                </a>
+                            <div class="text_index_custom">
+                                <h2>
+                                    <?= Yii::t('app', 'Делаем лестницы по которым хочеться подниматься все выше и выше');?>
+                                </h2>
                             </div>
                         </div>
                     </div>
@@ -68,10 +58,10 @@ $this->title = Yii::t('app', 'Главная');
             <!-- Icon Box -->
             <div class="col-lg-4 icon_box_col">
                 <div class="icon_box d-flex flex-column align-items-center justify-content-start text-center">
-                    <div class="icon_box_icon"><img src="images/icon_2.svg" class="svg"></div>
+                    <div class="icon_box_icon"><img src="images/icon_3.svg" class="svg"></div>
                     <div class="icon_box_title">
                         <h2>
-                            <?= Yii::t('app', 'Наружные ступени');?>
+                            <?= Yii::t('app', 'Беседки');?>
                         </h2>
                     </div>
                     <div class="icon_box_text">
@@ -87,10 +77,10 @@ $this->title = Yii::t('app', 'Главная');
             <!-- Icon Box -->
             <div class="col-lg-4 icon_box_col">
                 <div class="icon_box d-flex flex-column align-items-center justify-content-start text-center">
-                    <div class="icon_box_icon"><img src="images/icon_3.svg" class="svg"></div>
+                    <div class="icon_box_icon"><img src="images/icon_4.svg" class="svg"></div>
                     <div class="icon_box_title">
                         <h2>
-                            <?= Yii::t('app', 'Люксовые беседки');?>
+                            <?= Yii::t('app', 'Дома');?>
                         </h2>
                     </div>
                     <div class="icon_box_text">
@@ -152,18 +142,19 @@ $this->title = Yii::t('app', 'Главная');
                 <div class="about_content">
                     <div class="about_title">
                         <h2>
-                            10 лет на рынке, мы лидеры отрасли!
+                            Мы изготавливаем лестницы более 15 лет
                         </h2>
                     </div>
                     <div class="about_text">
                         <p>
-                            И сюда нужно какого то текста
-                            можно рассказать о достижениях фирмы
-                            это не обязательно должно быть правдой :-)
-                            так сказать комерческая замануха)))
-                            если есть какие то достижения в письменном виде, типа грамоты и т.д. то могу вставить справа -> <br>
-                            (или снизу, если на телефоне)
-                            если нет - оставим пустым
+                            У нас есть варианты на любой вкус.
+                            Мы используем качественные материалы и широкую цветовую гамму, наши лестницы предадут
+                            уют и украсят самый изысканный интерьер.
+                            Лестницы в наличии и под заказ.<br>
+                            Цена на готовый комплект зависит от следующих факторов:<br>
+                            Тип конструкции;<br>
+                            Декоративные элементы;<br>
+                            Вид дерева (дуб, ясень)<br>
                         </p>
                     </div>
                 </div>
@@ -218,8 +209,8 @@ $this->title = Yii::t('app', 'Главная');
                             <div class="testimonial_author"><a href="#">Максим Глушко</a></div>
                             <div class="testimonial_text">
                                 <p>
-                                    Текст отзыва можно тоже что то написать интересное
-                                    отзывы пока статические, потом можно будет сделать добавление от клиентов
+                                    Я не ожидал, что за такие короткие сроки и приемлемую цену можно сотворить чудо на моей даче.
+                                    Огромное Вам спасибо!
                                 </p>
                             </div>
                         </div>
@@ -235,7 +226,7 @@ $this->title = Yii::t('app', 'Главная');
                             <div class="testimonial_author"><a href="#">Назар Когуб</a></div>
                             <div class="testimonial_text">
                                 <p>
-                                    если нужно, то могу накидать больше отзывов, пока их только 3
+                                    Ребята реставрировали лестницу в нашем офисе. Сделали все быстро и качественно.
                                 </p>
                             </div>
                         </div>
@@ -258,7 +249,10 @@ $this->title = Yii::t('app', 'Главная');
                 </div>
                 <div class="booking_text text-center">
                     <p>
-                        Сдесь нужно описать как проходит процесс заказа, чем больше текста - тем лучше)
+                        Для нас каждый заказ индивидуален, изготавливаем лестницы от бюджетных вариантов до
+                        самых сложных класса люкс.
+                        Наш специалист сделает просчет по Вашему заказу,если нет чертежа поможем подобрать
+                        лестницу которая будет идеально подходить в Ваш дом и станет его неотъемлемой частью.
                     </p>
                 </div>
 
@@ -284,7 +278,7 @@ $this->title = Yii::t('app', 'Главная');
                             <div class="booking_overlay trans_200"></div>
                             <div class="booking_price">от $4000</div>
                             <div class="booking_link">
-                                <a href="<?= Url::to(['site/about', '#' => 'stairs-outside'])?>">
+                                <a href="<?= Url::to(['site/about', '#' => 'stairs'])?>">
                                     <?= Yii::t('app', 'Ступени');?>
                                 </a>
                             </div>

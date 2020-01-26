@@ -64,7 +64,6 @@ p
 {
 	font-family: 'Raleway', sans-serif;
 	font-size: 15px;
-	line-height: 2;
 	font-weight: 500;
 	color: #6d6d6d;
 	-webkit-font-smoothing: antialiased;
@@ -815,8 +814,8 @@ input[type=number]::-webkit-outer-spin-button
 .about
 {
 	background: #ffffff;
-	padding-top: 107px;
-	padding-bottom: 104px;
+	padding-top: 60px;
+	padding-bottom: 60px;
 }
 .about_text
 {
@@ -941,7 +940,7 @@ input[type=number]::-webkit-outer-spin-button
 .booking
 {
 	background: #ffffff;
-	padding-top: 107px;
+	padding-top: 60px;
 	padding-bottom: 114px;
 }
 .booking_no_padding_bottom {
@@ -953,7 +952,7 @@ input[type=number]::-webkit-outer-spin-button
 }
 .booking_slider_container
 {
-	margin-top: 63px;
+	margin-top: 50px;
 }
 .booking_item
 {
@@ -1406,4 +1405,11 @@ input[type=number]::-webkit-outer-spin-button
 {
 	width: 100%;
 	height: calc(100% + 30px);
+}
+
+.text_index_custom h2
+{
+	color: darkgrey;
+	font-style: italic;
+	font-size: 24px;
 }
