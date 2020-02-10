@@ -48,14 +48,25 @@ $config = [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'suffix' => '/',
             'rules' => [
                 '/' => 'site/index',
+
+                'admin' => 'admin/admin/index',
+                'login' => 'admin/admin/login',
+
                 '<action:\w+>' => 'site/<action>',
             ],
         ],
 
     ],
     'params' => $params,
+
+    'modules' => [
+        'admin' => [
+            'class' => 'app\modules\admin\AdminModule',
+        ],
+    ],
 ];
 
 if (YII_ENV_DEV) {

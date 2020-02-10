@@ -1,9 +1,10 @@
 <?php
 
-namespace app\models;
+namespace app\modules\admin\models\forms;
 
 use Yii;
 use yii\base\Model;
+use app\models\User;
 
 /**
  * LoginForm is the model behind the login form.
@@ -77,5 +78,14 @@ class LoginForm extends Model
         }
 
         return $this->_user;
+    }
+
+    public function attributeLabels()
+    {
+        return [
+            'username' => Yii::t('app', 'Логин'),
+            'password' => Yii::t('app', 'Пароль'),
+            'rememberMe' => Yii::t('app', 'Запомнить меня'),
+        ];
     }
 }
