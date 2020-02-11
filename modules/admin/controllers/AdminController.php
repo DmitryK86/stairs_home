@@ -5,6 +5,8 @@ namespace app\modules\admin\controllers;
 use app\components\Translit;
 use app\modules\admin\models\forms\LoginForm;
 use app\modules\admin\components\AdminBaseController;
+use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
 use yii\web\Response;
 
 /**
@@ -13,7 +15,7 @@ use yii\web\Response;
  */
 class AdminController extends AdminBaseController
 {
-    public function actionIndex()
+    public function actionAdmin()
     {
         return $this->render('index');
     }
@@ -24,9 +26,10 @@ class AdminController extends AdminBaseController
             return $this->redirect(['index']);
         }
 
+        $this->layout = 'main';
         $model = new LoginForm();
         if ($model->load(\Yii::$app->request->post()) && $model->login()) {
-            return $this->redirect(['index']);
+            return $this->redirect(['admin']);
         }
 
         $model->password = '';
@@ -44,7 +47,7 @@ class AdminController extends AdminBaseController
     {
         \Yii::$app->user->logout();
 
-        return $this->goHome();
+        return $this->redirect(['login']);
     }
 
     /**

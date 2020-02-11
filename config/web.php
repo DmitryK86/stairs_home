@@ -52,13 +52,10 @@ $config = [
             'rules' => [
                 '/' => 'site/index',
 
-                'admin' => 'admin/admin/index',
-                'login' => 'admin/admin/login',
-
+                '<action:(admin|login|logout)>' => 'admin/admin/<action>',
                 '<action:\w+>' => 'site/<action>',
             ],
         ],
-
     ],
     'params' => $params,
 

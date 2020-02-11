@@ -6,7 +6,9 @@ use yii\web\Controller;
 
 class AdminBaseController extends Controller
 {
-    public $layout = 'main';
+    public $layout = 'column2';
+    public $layoutPath = '@app/themes/adminLTE/layouts';
+
 
     public function behaviors()
     {
