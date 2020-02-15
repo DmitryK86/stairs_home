@@ -9,7 +9,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <div class="home">
-    <div class="background_image" style="background-image:url(images/about.jpg)"></div>
+    <div class="background_image" style="background-image:url(/images/about.jpg)"></div>
     <div class="home_container">
         <div class="container">
             <div class="row">
@@ -57,7 +57,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             <!-- Slide -->
             <div class="blog_slide">
-                <a href="/images/stairs/stairs1/1.jpg" class="background_image colorbox-1" style="background-image:url(images/stairs/stairs1/1.jpg)">
+                <a href="/images/stairs/stairs1/1.jpg" class="background_image colorbox-1" style="background-image:url(/images/stairs/stairs1/1.jpg)">
                 </a>
                 <div class="blog_content">
                     <div class="blog_date"><a href="#">Октябрь 2018</a></div>
@@ -69,7 +69,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             <!-- Slide -->
             <div class="blog_slide">
-                <a class="background_image colorbox-2" href="/images/stairs/stairs2/1.jpg" style="background-image:url(images/stairs/stairs2/1.jpg)"></a>
+                <a class="background_image colorbox-2" href="/images/stairs/stairs2/1.jpg" style="background-image:url(/images/stairs/stairs2/1.jpg)"></a>
                 <div class="blog_content">
                     <div class="blog_date"><a href="#">Январь 2019</a></div>
                     <div class="blog_title">
@@ -80,7 +80,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             <!-- Slide -->
             <div class="blog_slide">
-                <div class="background_image colorbox-3" href="/images/stairs/stairs3/1.jpg" style="background-image:url(images/stairs/stairs3/1.jpg)"></div>
+                <div class="background_image colorbox-3" href="/images/stairs/stairs3/1.jpg" style="background-image:url(/images/stairs/stairs3/1.jpg)"></div>
                 <div class="blog_content">
                     <div class="blog_date"><a href="#">Апрель 2019</a></div>
                     <div class="blog_title">
@@ -91,7 +91,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             <!-- Slide -->
             <div class="blog_slide">
-                <div class="background_image colorbox-4" href="/images/stairs/stairs4/1.jpg" style="background-image:url(images/stairs/stairs4/1.jpg)"></div>
+                <div class="background_image colorbox-4" href="/images/stairs/stairs4/1.jpg" style="background-image:url(/images/stairs/stairs4/1.jpg)"></div>
                 <div class="blog_content">
                     <div class="blog_date"><a href="#">Сентябрь 2019</a></div>
                     <div class="blog_title">
@@ -102,7 +102,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             <!-- Slide -->
             <div class="blog_slide">
-                <div class="background_image colorbox-5" href="/images/stairs/stairs5/1.jpg" style="background-image:url(images/stairs/stairs5/1.jpg)"></div>
+                <div class="background_image colorbox-5" href="/images/stairs/stairs5/1.jpg" style="background-image:url(/images/stairs/stairs5/1.jpg)"></div>
                 <div class="blog_content">
                     <div class="blog_date"><a href="#">Ноябрь 2019</a></div>
                     <div class="blog_title">
@@ -183,7 +183,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             <!-- Slide -->
             <div class="blog_slide">
-                <div class="background_image colorbox-gazebo-1" href="/images/gazebo/gazebo1/1.jpg" style="background-image:url(images/gazebo/gazebo1/1.jpg)"></div>
+                <div class="background_image colorbox-gazebo-1" href="/images/gazebo/gazebo1/1.jpg" style="background-image:url(/images/gazebo/gazebo1/1.jpg)"></div>
                 <div class="blog_content">
                     <div class="blog_date"><a href="#">Июнь 2019</a></div>
                     <div class="blog_title">
