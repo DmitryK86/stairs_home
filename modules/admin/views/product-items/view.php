@@ -91,6 +91,7 @@ $this->params['breadcrumbs'][] = $this->title;
     .gallery-post-grid {
         display: flex;
         flex-wrap: wrap;
+        list-style-type: none;
     }
     .gallery-hover-4col {
         width: 89px;
@@ -99,5 +100,8 @@ $this->params['breadcrumbs'][] = $this->title;
     .gallery-icons {
         display: flex;
         height: 32px;
+    }
+    .gallery-item {
+        margin-top: 20px;
     }
 </style>
