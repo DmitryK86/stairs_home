@@ -35,13 +35,13 @@ class ProductItems extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'slug', 'category_id'], 'required'],
+            [['title', 'slug', 'category_id', 'created_at'], 'required'],
             [['enabled'], 'integer'],
             [['description'], 'string'],
             [['title', 'slug'], 'string', 'max' => 255],
             [['category_id'], 'integer', 'min' => 1],
             [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Categories::className(), 'targetAttribute' => ['category_id' => 'id']],
-            [['images', 'created_at'], 'safe'],
+            [['images'], 'safe'],
         ];
     }
 
