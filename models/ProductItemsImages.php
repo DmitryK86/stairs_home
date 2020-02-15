@@ -73,8 +73,8 @@ class ProductItemsImages extends \yii\db\ActiveRecord
         return [
             [
                 'class' => ArImageBehavior::class,
-                'filePath' => "@webroot/uploads/{$this->product_item_id}/[[basename]]",
-                'fileUrl' => "/uploads/{$this->product_item_id}/[[basename]]",
+                'filePath' => "@webroot/uploads/[[pk]].[[extension]]",
+                'fileUrl' => "/uploads/[[pk]].[[extension]]",
             ],
 
         ];
