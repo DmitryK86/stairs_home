@@ -12,6 +12,9 @@ class m191005_085711_create_table_images extends Migration
      */
     public function safeUp()
     {
+        $dbName = $this->getDbName();
+        $this->execute("ALTER DATABASE {$dbName} CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci");
+
         $this->createTable('images', [
             'id' => $this->primaryKey(),
             'model_id' => $this->integer()->notNull(),
@@ -42,4 +45,12 @@ class m191005_085711_create_table_images extends Migration
         return false;
     }
     */
+
+    private function getDbName(){
+        if (preg_match('/dbname=([^;]*)/', Yii::$app->db->dsn, $match)) {
+            return $match[1];
+        } else {
+            return null;
+        }
+    }
 }

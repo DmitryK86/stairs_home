@@ -16,7 +16,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'slug')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'enabled')->textInput() ?>
+    <?= $form->field($model, 'enabled')->widget(\kartik\widgets\SwitchInput::classname(), []) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

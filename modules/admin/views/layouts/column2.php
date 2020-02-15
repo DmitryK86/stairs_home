@@ -43,12 +43,17 @@ use app\modules\admin\components\ThemeNav;
                       ['label'=>Yii::t('app','MAIN NAVIGITION'), 'options'=>['class'=>'header']],
                       [
                           'label' => ThemeNav::link('Дашборд', 'fa fa-dashboard'),
-                          'url' => ['/admin/admin/index/'],
+                          'url' => ['/admin/'],
                           'visible'=>!Yii::$app->user->isGuest
                       ],
                       [
                           'label' => ThemeNav::link('Категории', 'fa fa-bars'),
                           'url' => ['/admin/categories/index/'],
+                          'visible'=>!Yii::$app->user->isGuest
+                      ],
+                      [
+                          'label' => ThemeNav::link('Продукты', 'fa fa-bars'),
+                          'url' => ['/admin/product-items/index/'],
                           'visible'=>!Yii::$app->user->isGuest
                       ],
                   ],
