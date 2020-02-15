@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "categories".
@@ -41,9 +42,9 @@ class Categories extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title' => 'Title',
+            'title' => 'Название',
             'slug' => 'Slug',
-            'enabled' => 'Enabled',
+            'enabled' => 'Включен',
         ];
     }
 
@@ -53,5 +54,9 @@ class Categories extends \yii\db\ActiveRecord
     public function getProductItems()
     {
         return $this->hasMany(ProductItems::className(), ['category_id' => 'id']);
+    }
+
+    public static function getForDropdown(){
+        return ArrayHelper::map(self::findAll(['enabled' => true]), 'id', 'title');
     }
 }

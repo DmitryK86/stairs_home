@@ -16,7 +16,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'slug')->textInput(['maxlength' => 255]) ?>
 
-    <?= $form->field($model, 'category_id')->dropDownList(\yii\helpers\ArrayHelper::map(\app\models\Categories::find()->all(), 'id', 'title'));?>
+    <?= $form->field($model, 'category_id')->dropDownList(\yii\helpers\ArrayHelper::merge(['Выберите'], \app\models\Categories::getForDropdown()));?>
 
     <?= $form->field($model, 'enabled')->widget(\kartik\widgets\SwitchInput::classname(), []) ?>
 

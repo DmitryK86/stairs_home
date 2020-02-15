@@ -56,6 +56,9 @@ class ArImageBehavior extends ImageUploadBehavior
             if (empty($this->_image->model_id)){
                 $this->_image->model_id = $this->owner->getPrimaryKey();
             }
+            $chunks = explode('/', $this->resolvePath($this->filePath));
+            $filename = array_pop($chunks);
+            $this->_image->filename = $filename;
             if (!$this->_image->save()){
                 throw new Exception('Image model saving error. Details: ' . json_encode($this->_image->getErrors(), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
             }

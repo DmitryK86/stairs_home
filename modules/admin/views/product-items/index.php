@@ -42,7 +42,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     $category = $model->getCategory()->one();
                     return '<span class="label label-info">'.$category->title.'</span>';
                 },
-                'filter' => \yii\helpers\ArrayHelper::map(\app\models\Categories::findAll(['enabled' => true]), 'id', 'title')
+                'filter' => \app\models\Categories::getForDropdown(),
             ],
 
             ['class' => 'yii\grid\ActionColumn'],
