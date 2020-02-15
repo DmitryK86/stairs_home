@@ -18,6 +18,7 @@ class m200212_195114_create_table_product_items extends Migration
             'title' => $this->string()->notNull(),
             'slug' => $this->string()->notNull(),
             'enabled' => $this->boolean()->defaultValue(false),
+            'created_at' => $this->dateTime()->defaultValue(new \yii\db\Expression('NOW()')),
             'description' => $this->text(),
         ]);
 

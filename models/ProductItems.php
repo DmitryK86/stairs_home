@@ -3,6 +3,8 @@
 namespace app\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
+use yii\db\Expression;
 use yii\web\UploadedFile;
 
 /**
@@ -13,6 +15,7 @@ use yii\web\UploadedFile;
  * @property string $slug
  * @property int|null $enabled
  * @property string|null $description
+ * @property string|null $created_at
  */
 class ProductItems extends \yii\db\ActiveRecord
 {
@@ -37,7 +40,7 @@ class ProductItems extends \yii\db\ActiveRecord
             [['description'], 'string'],
             [['title', 'slug'], 'string', 'max' => 255],
             [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Categories::className(), 'targetAttribute' => ['category_id' => 'id']],
-            [['images'], 'safe'],
+            [['images', 'created_at'], 'safe'],
         ];
     }
 
@@ -52,6 +55,7 @@ class ProductItems extends \yii\db\ActiveRecord
             'slug' => 'Slug',
             'enabled' => 'Enabled',
             'description' => 'Description',
+            'created_at' => 'Дата создания'
         ];
     }
 

@@ -20,6 +20,12 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'enabled')->widget(\kartik\widgets\SwitchInput::classname(), []) ?>
 
+    <?= $form->field($model, 'created_at')->widget(\kartik\widgets\DatePicker::className(), [
+        'pluginOptions' => [
+            'format' => 'yyyy-mm-dd',
+        ]
+    ])?>
+
     <?= $form->field($model, 'images[]')->fileInput(['multiple' => true]) ?>
 
     <div class="form-group">
