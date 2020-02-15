@@ -46,4 +46,12 @@ class Categories extends \yii\db\ActiveRecord
             'enabled' => 'Enabled',
         ];
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getProductItems()
+    {
+        return $this->hasMany(ProductItems::className(), ['category_id' => 'id']);
+    }
 }

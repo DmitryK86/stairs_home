@@ -24,7 +24,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
             'title',
             [
                 'format' => 'html',
@@ -34,7 +33,16 @@ $this->params['breadcrumbs'][] = $this->title;
                         ? '<span class="label label-success">Да</span>'
                         : '<span class="label label-danger">Нет</span>';
                 },
-                'filter' => ['Ні', 'Так'],
+                'filter' => ['Нет', 'Да'],
+            ],
+            [
+                'format' => 'html',
+                'attribute' => 'category_id',
+                'value' => function (\app\models\ProductItems $model) {
+                    $category = $model->getCategory()->one();
+                    return '<span class="label label-info">'.$category->title.'</span>';
+                },
+                'filter' => \yii\helpers\ArrayHelper::map(\app\models\Categories::findAll(['enabled' => true]), 'id', 'title')
             ],
 
             ['class' => 'yii\grid\ActionColumn'],

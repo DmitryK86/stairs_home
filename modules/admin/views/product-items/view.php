@@ -38,7 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'enabled',
                 'value' => function(\app\models\ProductItems $model){
-                    return $model->enabled ? 'Так' : 'Ні';
+                    return $model->enabled ? 'Да' : 'Нет';
                 }
             ],
             [
@@ -60,7 +60,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <span class="gallery-icons">
 
                                     <?= Html::a(Yii::t('app', 'Главная'),
-                                        ['main', 'galleryId' => $model->id, 'itemId' => $item->id],
+                                        ['main', 'productId' => $model->id, 'itemId' => $item->id],
                                         [
                                             'class' => $item->is_main ? 'btn' : 'btn btn-primary',
                                             'onclick' => $item->is_main ? 'event.preventDefault()' : null

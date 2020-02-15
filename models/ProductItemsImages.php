@@ -35,10 +35,11 @@ class ProductItemsImages extends \yii\db\ActiveRecord
     {
         return [
             [['product_item_id'], 'required'],
-            [['product_item_id', 'is_main'], 'integer'],
+            [['product_item_id'], 'integer'],
             [['comment'], 'string', 'max' => 255],
             [['product_item_id'], 'exist', 'skipOnError' => true, 'targetClass' => ProductItems::className(), 'targetAttribute' => ['product_item_id' => 'id']],
             [['image'], 'file', 'extensions' => 'jpeg, gif, png, jpg'],
+            [['is_main'], 'boolean'],
         ];
     }
 
@@ -87,6 +88,6 @@ class ProductItemsImages extends \yii\db\ActiveRecord
         $item = self::findOne($itemId);
         $item->is_main = true;
 
-        return $item->update();
+        return $item->save();
     }
 }

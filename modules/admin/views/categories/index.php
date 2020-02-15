@@ -23,11 +23,18 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
             'title',
             'slug',
-            'enabled',
+            [
+                'format' => 'html',
+                'attribute' => 'enabled',
+                'value' => function (\app\models\Categories $model) {
+                    return $model->enabled
+                        ? '<span class="label label-success">Да</span>'
+                        : '<span class="label label-danger">Нет</span>';
+                },
+                'filter' => ['Нет', 'Да'],
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

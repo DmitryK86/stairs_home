@@ -67,6 +67,14 @@ class ProductItems extends \yii\db\ActiveRecord
         return $this->hasMany(ProductItemsImages::className(), ['product_item_id' => 'id']);
     }
 
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCategory()
+    {
+        return $this->hasOne(Categories::className(), ['id' => 'category_id']);
+    }
+
     public function beforeSave($insert)
     {
         if ($this->images){
@@ -99,20 +107,20 @@ class ProductItems extends \yii\db\ActiveRecord
     }
 
     public function getMainImage(){
-        $main = $this->getGalleryItems()->andWhere('is_main = TRUE')->one();
+        $main = $this->getProductItemsImages()->andWhere('is_main = TRUE')->one();
         if (!$main){
-            $main = $this->getGalleryItems()->one();
+            $main = $this->getProductItemsImages()->one();
         }
 
         if (!$main){
-            $main = new GalleryItems();
+            $main = new ProductItemsImages();
         }
 
 
         return $main;
     }
 
-    public function getImages(){
-        return $this->getGalleryItems()->all();
+    public function getImages($excludedIds = []){
+        return $this->getProductItemsImages()->where(['not in', 'id', $excludedIds])->all();
     }
 }

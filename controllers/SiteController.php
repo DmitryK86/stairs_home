@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Categories;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -63,6 +64,9 @@ class SiteController extends Controller
      */
     public function actionAbout()
     {
-        return $this->render('about');
+        $categories = Categories::findAll(['enabled' => true]);
+        return $this->render('about', [
+            'categories' => $categories,
+        ]);
     }
 }
