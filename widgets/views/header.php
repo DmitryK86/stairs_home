@@ -28,7 +28,7 @@ use app\helpers\Params;
                 </a>
             </div>
             <div class="header_phone d-flex flex-row align-items-center justify-content-center">
-                <img src="images/phone.png" alt="">
+                <img src="/images/phone.png" alt="">
                 <a href="tel:<?= Params::phone();?>">
                     <span ><?= Params::phone();?></span>
                 </a>
@@ -64,7 +64,7 @@ use app\helpers\Params;
             </a>
         </div>
         <div class="menu_phone d-flex flex-row align-items-center justify-content-center">
-            <img src="images/phone-2.png" alt="">
+            <img src="/images/phone-2.png" alt="">
             <a href="tel:<?= Params::phone();?>">
                 <span ><?= Params::phone();?></span>
             </a>
