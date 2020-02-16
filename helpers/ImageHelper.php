@@ -3,5 +3,5 @@ namespace app\helpers;
 
 class ImageHelper
 {
-    const EMPTY_IMG_SRC = '/img/empty.gif';
+    const EMPTY_IMG_SRC = '/images/no-image.jpg';
 }

@@ -39,7 +39,8 @@ $hiddenData = [];
 
 <?php foreach ($categories as $category): ?>
     <a name="<?= $category->slug; ?>" class="anchor-link"></a>
-
+    <?php $productItems = $category->getProductItems()->all(); ?>
+    <?php if (empty($productItems)) continue;?>
     <div class="custom_elements_title">
         <h2>
             <?= $category->title; ?>
@@ -49,7 +50,6 @@ $hiddenData = [];
     <div class="blog">
         <!-- Blog Slider -->
         <div class="blog_slider_container">
-            <?php $productItems = $category->getProductItems()->all(); ?>
             <?php if (count($productItems) > 1): ?>
                 <div class="owl-carousel owl-theme blog_slider">
             <?php endif; ?>
@@ -74,10 +74,13 @@ $hiddenData = [];
                         </div>
                     </div>
 
-                    <?php $hiddenData[] = $this->render('about/images', [
-                        'images' => $productItem->getImages([$mainImage->id]),
-                        'productItem' => $productItem,
-                    ]); ?>
+                    <?php $images = $productItem->getImages([$mainImage->id]);?>
+                    <?php if (!empty($images)):?>
+                        <?php $hiddenData[] = $this->render('about/images', [
+                            'images' => $images,
+                            'productItem' => $productItem,
+                        ]); ?>
+                    <?php endif;?>
                 <?php endforeach; ?>
 
         <?php if (count($productItems) > 1): ?>

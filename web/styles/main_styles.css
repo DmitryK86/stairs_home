@@ -258,7 +258,7 @@ section
 	background: #0f0e24;
 }
 .home .background_image {
-	opacity: 0.28;
+	opacity: 0.55;
 }
 .background_image
 {
@@ -1034,7 +1034,7 @@ input[type=number]::-webkit-outer-spin-button
 }
 .blog_slide .background_image
 {
-	opacity: 0.33;
+	opacity: 0.65;
 }
 .blog_content
 {
@@ -1413,7 +1413,7 @@ input[type=number]::-webkit-outer-spin-button
 
 .text_index_custom h2
 {
-	color: darkgrey;
+	color: #e0e0e0;
 	font-style: italic;
 	font-size: 24px;
 }
