@@ -17,7 +17,7 @@ class ProductItemsSearch extends ProductItems
     public function rules()
     {
         return [
-            [['id', 'enabled'], 'integer'],
+            [['id', 'enabled', 'category_id'], 'integer'],
             [['title', 'slug', 'description'], 'safe'],
         ];
     }
@@ -64,7 +64,8 @@ class ProductItemsSearch extends ProductItems
 
         $query->andFilterWhere(['like', 'title', $this->title])
             ->andFilterWhere(['like', 'slug', $this->slug])
-            ->andFilterWhere(['like', 'description', $this->description]);
+            ->andFilterWhere(['like', 'description', $this->description])
+            ->andFilterWhere(['category_id' => $this->category_id]);
 
         return $dataProvider;
     }

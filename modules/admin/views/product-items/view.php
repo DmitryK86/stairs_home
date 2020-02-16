@@ -48,6 +48,13 @@ $this->params['breadcrumbs'][] = $this->title;
                     return $model->getProductItemsImages()->count();
                 }
             ],
+            [
+                'attribute' => 'manufactured_at',
+                'label' => Yii::t('app', 'Дата производства'),
+                'value' => function(\app\models\ProductItems $model){
+                    return \app\helpers\DateHelper::getDateWithMonthAsWord($model->manufactured_at);
+                }
+            ],
         ],
     ]) ?>
 

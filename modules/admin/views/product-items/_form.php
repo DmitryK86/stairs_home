@@ -18,9 +18,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'category_id')->dropDownList(\yii\helpers\ArrayHelper::merge(['Выберите'], \app\models\Categories::getForDropdown()));?>
 
+    <?= $form->field($model, 'description')->textarea(['maxlength' => true, 'rows' => 5]);?>
+
     <?= $form->field($model, 'enabled')->widget(\kartik\widgets\SwitchInput::classname(), []) ?>
 
-    <?= $form->field($model, 'created_at')->widget(\kartik\widgets\DatePicker::className(), [
+    <?= $form->field($model, 'manufactured_at')->widget(\kartik\widgets\DatePicker::className(), [
         'pluginOptions' => [
             'format' => 'yyyy-mm-dd',
         ]

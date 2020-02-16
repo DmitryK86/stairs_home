@@ -66,7 +66,7 @@ $hiddenData = [];
                         </a>
                         <div class="blog_content">
                             <div class="blog_date">
-                                <a href="#"><?= \app\helpers\DateHelper::getDateWithMonthAsWord($productItem->created_at); ?></a>
+                                <a href="#"><?= \app\helpers\DateHelper::getDateWithMonthAsWord($productItem->manufactured_at); ?></a>
                             </div>
                             <div class="blog_title">
                                 <?= $productItem->title; ?>

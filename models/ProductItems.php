@@ -16,6 +16,8 @@ use yii\web\UploadedFile;
  * @property int|null $enabled
  * @property string|null $description
  * @property string|null $created_at
+ * @property string|null $manufactured_at
+ * @property int $category_id
  */
 class ProductItems extends \yii\db\ActiveRecord
 {
@@ -35,13 +37,13 @@ class ProductItems extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'slug', 'category_id', 'created_at'], 'required'],
+            [['title', 'slug', 'category_id', 'manufactured_at'], 'required'],
             [['enabled'], 'integer'],
             [['description'], 'string'],
             [['title', 'slug'], 'string', 'max' => 255],
             [['category_id'], 'integer', 'min' => 1],
             [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Categories::className(), 'targetAttribute' => ['category_id' => 'id']],
-            [['images'], 'safe'],
+            [['images', 'created_at'], 'safe'],
         ];
     }
 
@@ -56,7 +58,7 @@ class ProductItems extends \yii\db\ActiveRecord
             'slug' => 'Slug',
             'enabled' => 'Включен',
             'description' => 'Описание',
-            'created_at' => 'Дата создания',
+            'manufactured_at' => 'Дата производства',
             'category_id' => 'Категория'
         ];
     }
