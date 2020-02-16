@@ -44,6 +44,7 @@ class ProductItems extends \yii\db\ActiveRecord
             [['category_id'], 'integer', 'min' => 1],
             [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Categories::className(), 'targetAttribute' => ['category_id' => 'id']],
             [['images', 'created_at'], 'safe'],
+            [['title', 'slug'], 'filter', 'filter' => 'trim'],
         ];
     }
 

@@ -32,6 +32,7 @@ class Categories extends \yii\db\ActiveRecord
             [['title', 'slug'], 'required'],
             [['enabled'], 'integer'],
             [['title', 'slug'], 'string', 'max' => 255],
+            [['title', 'slug'], 'filter', 'filter' => 'trim'],
         ];
     }
 
