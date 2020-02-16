@@ -74,13 +74,11 @@ $hiddenData = [];
                         </div>
                     </div>
 
-                    <?php $images = $productItem->getImages([$mainImage->id]);?>
-                    <?php if (!empty($images)):?>
-                        <?php $hiddenData[] = $this->render('about/images', [
-                            'images' => $images,
-                            'productItem' => $productItem,
-                        ]); ?>
-                    <?php endif;?>
+                    <?php $hiddenData[] = $this->render('about/images', [
+                        'images' => $productItem->getImages([$mainImage->id]),
+                        'productItem' => $productItem,
+                    ]); ?>
+
                 <?php endforeach; ?>
 
         <?php if (count($productItems) > 1): ?>

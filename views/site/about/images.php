@@ -6,6 +6,7 @@
  */
 ?>
 
+<?php if (!empty($images)):?>
 <div class="items hidden">
     <?php foreach ($images as $image): ?>
         <div class="gallery_item">
@@ -13,6 +14,7 @@
         </div>
     <?php endforeach; ?>
 </div>
+<?php endif;?>
 
 
 <?php $this->registerJs("
