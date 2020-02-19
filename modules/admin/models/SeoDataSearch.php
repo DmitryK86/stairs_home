@@ -4,12 +4,12 @@ namespace app\modules\admin\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\ProductItems;
+use app\models\SeoData;
 
 /**
- * ProductItemsSearch represents the model behind the search form of `app\models\ProductItems`.
+ * SeoDataSearch represents the model behind the search form of `app\models\SeoData`.
  */
-class ProductItemsSearch extends ProductItems
+class SeoDataSearch extends SeoData
 {
     /**
      * {@inheritdoc}
@@ -17,8 +17,8 @@ class ProductItemsSearch extends ProductItems
     public function rules()
     {
         return [
-            [['id', 'enabled', 'category_id'], 'integer'],
-            [['title', 'slug', 'description'], 'safe'],
+            [['id', 'enabled'], 'integer'],
+            [['route', 'title', 'h1', 'keywords', 'description'], 'safe'],
         ];
     }
 
@@ -40,7 +40,7 @@ class ProductItemsSearch extends ProductItems
      */
     public function search($params)
     {
-        $query = ProductItems::find();
+        $query = SeoData::find();
 
         // add conditions that should always apply here
 
@@ -62,10 +62,11 @@ class ProductItemsSearch extends ProductItems
             'enabled' => $this->enabled,
         ]);
 
-        $query->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'slug', $this->slug])
-            ->andFilterWhere(['like', 'description', $this->description])
-            ->andFilterWhere(['category_id' => $this->category_id]);
+        $query->andFilterWhere(['like', 'route', $this->route])
+            ->andFilterWhere(['like', 'title', $this->title])
+            ->andFilterWhere(['like', 'h1', $this->h1])
+            ->andFilterWhere(['like', 'keywords', $this->keywords])
+            ->andFilterWhere(['like', 'description', $this->description]);
 
         return $dataProvider;
     }

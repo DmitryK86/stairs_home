@@ -3,14 +3,14 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Categories */
+/* @var $model app\models\SeoData */
 
-$this->title = 'Редактирование категории: ' . $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Категории', 'url' => ['index']];
+$this->title = 'Обновить СЕО-данные: ' . $model->title;
+$this->params['breadcrumbs'][] = ['label' => 'СЕО-данные', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
-<div class="categories-update">
+<div class="seo-data-update">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

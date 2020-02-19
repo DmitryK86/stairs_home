@@ -1,9 +1,8 @@
 <?php
-/* @var $this yii\web\View */
+/* @var $this \app\components\SeoView */
 
 use yii\helpers\Url;
 
-$this->title = Yii::t('app', 'Главная');
 ?>
 
 <div class="home">
@@ -14,7 +13,7 @@ $this->title = Yii::t('app', 'Главная');
                 <div class="col">
                     <div class="home_content text-center">
                         <h1 class="home_title">
-                            <?= Yii::t('app', 'Лестницы под ключ');?>
+                            <?= $this->h1;?>
                         </h1>
                         <div class="my-flex">
                             <div class="text_index_custom">

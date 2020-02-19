@@ -1,6 +1,6 @@
 <?php
 
-/* @var $this \yii\web\View */
+/* @var $this \app\components\SeoView */
 /* @var $content string */
 
 use app\widgets\Footer;

@@ -60,6 +60,9 @@ $config = [
                 '<action:\w+>' => 'site/<action>',
             ],
         ],
+        'view' => [
+            'class' => 'app\components\SeoView',
+        ],
     ],
     'params' => $params,
 

@@ -52,8 +52,13 @@ use app\modules\admin\components\ThemeNav;
                           'visible'=>!Yii::$app->user->isGuest
                       ],
                       [
-                          'label' => ThemeNav::link('Продукты', 'fa fa-bars'),
+                          'label' => ThemeNav::link('Продукты', 'fa fa-briefcase'),
                           'url' => ['/admin/product-items/index/'],
+                          'visible'=>!Yii::$app->user->isGuest
+                      ],
+                      [
+                          'label' => ThemeNav::link('СЕО данные', 'fa fa-cloud'),
+                          'url' => ['/admin/seo-data/index/'],
                           'visible'=>!Yii::$app->user->isGuest
                       ],
                   ],

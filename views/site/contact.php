@@ -1,6 +1,6 @@
 <?php
 
-/* @var $this yii\web\View */
+/* @var $this \app\components\SeoView */
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model app\models\ContactForm */
 
@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="col">
                     <div class="home_content text-center">
                         <h1 class="home_title">
-                            <?= Yii::t('app', 'Наши контакты');?>
+                            <?= $this->h1;?>
                         </h1>
                     </div>
                 </div>

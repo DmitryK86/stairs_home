@@ -1,13 +1,9 @@
 <?php
 
-/* @var $this yii\web\View */
+/* @var $this \app\components\SeoView */
 
 /* @var $categories \app\models\Categories[] */
 
-use yii\helpers\Html;
-
-$this->title = Yii::t('app', 'Наши работы');
-$this->params['breadcrumbs'][] = $this->title;
 $hiddenData = [];
 ?>
 
@@ -19,7 +15,7 @@ $hiddenData = [];
                 <div class="col">
                     <div class="home_content text-center">
                         <h1 class="home_title">
-                            <?= Yii::t('app', 'Наши работы'); ?>
+                            <?= $this->h1; ?>
                         </h1>
                         <div class="my-flex">
                             <?php foreach ($categories as $category): ?>

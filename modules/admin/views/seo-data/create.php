@@ -3,13 +3,13 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Categories */
+/* @var $model app\models\SeoData */
 
-$this->title = 'Создание категории';
-$this->params['breadcrumbs'][] = ['label' => 'Категории', 'url' => ['index']];
+$this->title = 'Создать СЕО-данные';
+$this->params['breadcrumbs'][] = ['label' => 'СЕО-данные', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="categories-create">
+<div class="seo-data-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
