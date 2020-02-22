@@ -1,22 +1,31 @@
 <?php
 namespace app\behaviors;
 
+use app\components\VisitorComponent;
+use \yii\base\Behavior;
+use yii\web\Controller;
 
-use app\managers\RedirectRoutesManager;
-use yii\base\Behavior;
-use yii\base\Event;
-use yii\web\Application;
-
+/**
+ * Class AccessBehavior
+ * @package app\components\behaviors
+ */
 class AppBehavior extends Behavior
 {
     public function events()
     {
         return [
-            Application::EVENT_BEFORE_REQUEST => "onBeforeRequest",
+            Controller::EVENT_BEFORE_ACTION => 'beforeAction',
+            Controller::EVENT_AFTER_ACTION => 'afterAction',
         ];
     }
 
-    public function onBeforeRequest(Event $event){
-        //(new RedirectRoutesManager())->checkAndREdirect();
+    public function beforeAction(){
+        if (VisitorComponent::isNewVisitorToday() && !VisitorComponent::checkIsBot()){
+            VisitorComponent::updateVisitsCounters();
+        }
+    }
+
+    public function afterAction(){
+        return true;
     }
 }
