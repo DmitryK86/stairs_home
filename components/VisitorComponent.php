@@ -49,4 +49,20 @@ class VisitorComponent
             'expire' => $expired ?: time() + 60*60*24*365,
         ]));
     }
+
+    public static function getChartData($daysLimit = 14){
+        $visits = Visits::find()->orderBy('id desc')->limit($daysLimit)->all();
+        $days = [];
+        $visitorsCount = [0];
+
+        foreach ($visits as $visitDay){
+            $days[] = $visitDay->date;
+            $visitorsCount[] = $visitDay->visits;
+        }
+
+        return [
+            'days' => array_reverse($days),
+            'visits' => array_reverse($visitorsCount)
+        ];
+    }
 }
