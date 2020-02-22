@@ -8,8 +8,6 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\captcha\Captcha;
 
-$this->title = 'Контакты';
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <div class="home" style="height: 60vh">
@@ -22,6 +20,13 @@ $this->params['breadcrumbs'][] = $this->title;
                         <h1 class="home_title">
                             <?= $this->h1;?>
                         </h1>
+                        <div class="my-flex">
+                            <div class="text_index_custom">
+                                <h2>
+                                    <?= $this->h2;?>
+                                </h2>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

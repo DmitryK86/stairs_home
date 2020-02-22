@@ -13,6 +13,7 @@ use yii\helpers\Url;
  * @property int|null $enabled
  * @property string|null $title
  * @property string|null $h1
+ * @property string|null $h2
  * @property string|null $keywords
  * @property string|null $description
  */
@@ -32,11 +33,11 @@ class SeoData extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['route'], 'required'],
+            [['route', 'title'], 'required'],
             [['route'], 'filter', 'filter' => [$this, 'addSlashes']],
             [['enabled'], 'integer'],
             [['route', 'title', 'h1'], 'string', 'max' => 255],
-            [['keywords', 'description'], 'string', 'max' => 500],
+            [['keywords', 'description', 'h2'], 'string', 'max' => 500],
         ];
     }
 
@@ -54,10 +55,11 @@ class SeoData extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'route' => 'Адресс',
+            'route' => 'URL',
             'enabled' => 'Включено',
-            'title' => 'Title',
+            'title' => 'Название вкладки',
             'h1' => 'H1',
+            'h2' => 'H2',
             'keywords' => 'Keywords',
             'description' => 'Description',
         ];

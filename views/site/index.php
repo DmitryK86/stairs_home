@@ -18,7 +18,7 @@ use yii\helpers\Url;
                         <div class="my-flex">
                             <div class="text_index_custom">
                                 <h2>
-                                    <?= Yii::t('app', 'Делаем лестницы, по которым хочеться подниматься все выше и выше...');?>
+                                    <?= $this->h2;?>
                                 </h2>
                             </div>
                         </div>

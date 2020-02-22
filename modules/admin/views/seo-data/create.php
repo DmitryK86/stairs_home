@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\SeoData */
 
-$this->title = 'Создать СЕО-данные';
+$this->title = 'Добавить СЕО-данные';
 $this->params['breadcrumbs'][] = ['label' => 'СЕО-данные', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

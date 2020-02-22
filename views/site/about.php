@@ -18,6 +18,13 @@ $hiddenData = [];
                             <?= $this->h1; ?>
                         </h1>
                         <div class="my-flex">
+                            <div class="text_index_custom">
+                                <h2>
+                                    <?= $this->h2;?>
+                                </h2>
+                            </div>
+                        </div>
+                        <div class="my-flex">
                             <?php foreach ($categories as $category): ?>
                                 <div class="booking_input_custom">
                                     <a href="#<?= $category->slug; ?>">

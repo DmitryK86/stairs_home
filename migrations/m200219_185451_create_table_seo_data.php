@@ -16,8 +16,9 @@ class m200219_185451_create_table_seo_data extends Migration
             'id' => $this->primaryKey(),
             'route' => $this->string(255)->notNull(),
             'enabled' => $this->boolean()->defaultValue(false),
-            'title' => $this->string(255),
+            'title' => $this->string(255)->notNull(),
             'h1' => $this->string(255),
+            'h2' => $this->string(500),
             'keywords' => $this->string(500),
             'description' => $this->string(500),
         ]);
