@@ -26,4 +26,11 @@ class Params
     public static function infoEmail(){
         return \Yii::$app->params['infoEmail'];
     }
+
+    public static function infoEmailDomain(){
+        $emailData = explode('@', self::infoEmail());
+
+        return $emailData[1] ?? '';
+
+    }
 }

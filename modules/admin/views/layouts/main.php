@@ -1,13 +1,20 @@
 <?php
-use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\widgets\Breadcrumbs;
-use app\assets\AppAsset;
-use app\assets\AdminlteAsset;
 /* @var $this \yii\web\View */
 /* @var $content string */
+
+use yii\helpers\Html;
+use yii\bootstrap\Nav;
+use app\assets\AdminlteAsset;
+use app\assets\AdminAsset;
+use app\managers\MessageManager;
+use \yii\helpers\Url;
+
 AdminlteAsset::register($this);
-\app\assets\AdminAsset::register($this);
+AdminAsset::register($this);
+
+$manager = MessageManager::instance();
+$hasMessage = $manager->hasNewMessage();
+$messageCount = $manager->getNewMessagesCount();
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -42,21 +49,50 @@ AdminlteAsset::register($this);
                 <span class="icon-bar"></span>
               </a>
               <div class="navbar-custom-menu">
+                  <?php $this->registerCss('.navbar-nav>.messages-menu>.dropdown-menu>li .menu>li>a>h4{margin:0;}.navbar-nav>.messages-menu>.dropdown-menu>li .menu>li>a>p{margin:0;}');?>
                   <?php
                       echo Nav::widget([
                           'options' => ['class' => 'nav navbar-nav'],
+                          'encodeLabels' => false,
                           'items' => [
-                              Yii::$app->user->isGuest ?
-                                  ['label' => 'Login', 'url' => ['/site/login']] :
-                                  ['label' => 'Logout (' . Yii::$app->user->identity->username . ')',
-                                      'url' => ['/site/logout'],
-                                      'linkOptions' => ['data-method' => 'post']],
+                              [
+                                  'label' => $hasMessage
+                                      ? '<i class="fa fa-envelope-o"></i><span class="label label-success">'.$messageCount.'</span>'
+                                      : '<i class="fa fa-envelope-o"></i>',
+                                  'dropDownOptions' => ['class' => 'dropdown-menu'],
+                                  'options' => ['class' => 'dropdown messages-menu'],
+                                  'items' => [
+                                      "<li class=\"header\">{$messageCount} новых сообщений</li>",
+                                      $hasMessage
+                                          ? "<li>
+                                            <ul class=\"menu\">
+                                                <li>
+                                                    <a href=\"".Url::to(['/admin/messages/view', 'id' => $manager->getLastMessage()->id])."\">
+                                                        <h4>
+                                                            {$manager->getSenderName()}
+                                                            <small><i class=\"fa fa-clock-o\"></i> {$manager->getCreatedAt()}</small>
+                                                        </h4>
+                                                        <p>{$manager->getSubject()}</p>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>"
+                                          : '',
+                                      '<li class="footer">
+                                        <a href="'.Url::to(['/admin/messages/']).'">Все сообщения</a>
+                                      </li>',
+                                  ],
+                              ],
+                              [
+                                  'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
+                                  'url' => ['/site/logout'],
+                                  'linkOptions' => ['data-method' => 'post']
+                              ],
                           ],
                       ]);
                   ?>
               </div>
             </nav>
-
         </header>
 
         <?= $content ?>

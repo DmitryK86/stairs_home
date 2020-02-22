@@ -7,7 +7,9 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\captcha\Captcha;
+use app\assets\SweetAlertAsset;
 
+SweetAlertAsset::register($this);
 ?>
 
 <div class="home" style="height: 60vh">
@@ -51,20 +53,36 @@ use yii\captcha\Captcha;
                             <?php endforeach;?>
                         </ul>
                     </div>
+                    <div class="">
+
+                    </div>
                     <div class="contact_form_container">
-                        <form action="#" class="contact_form" id="contact_form">
-                            <div class="row">
-                                <div class="col-md-6 input_container">
-                                    <input type="text" class="contact_input" placeholder="Ваше имя" required="required">
-                                </div>
-                                <div class="col-md-6 input_container">
-                                    <input type="email" class="contact_input" placeholder="Ваш email" required="required">
-                                </div>
+                        <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
+
+                        <div class="row">
+                            <div class="col-md-6 input_container">
+                                <?= $form->field($model, 'name')->textInput() ?>
                             </div>
-                            <div class="input_container"><input type="text" class="contact_input" placeholder="Тема"></div>
-                            <div class="input_container"><textarea class="contact_input contact_textarea" placeholder="Сообщение" required="required"></textarea></div>
-                            <button class="contact_button">Отправить</button>
-                        </form>
+                            <div class="col-md-6 input_container">
+                                <?= $form->field($model, 'email') ?>
+                            </div>
+                        </div>
+
+                        <?= $form->field($model, 'subject') ?>
+
+                        <?= $form->field($model, 'body')->textarea(['rows' => 6]) ?>
+
+                        <?php if ($model->isCaptchaEnabled()):?>
+                            <?= $form->field($model, 'verifyCode')->widget(Captcha::className(), [
+                                'template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-6">{input}</div></div>',
+                            ]) ?>
+                        <?php endif;?>
+
+                        <div class="form-group">
+                            <?= Html::submitButton('Submit', ['class' => 'btn contact_button', 'name' => 'contact-button']) ?>
+                        </div>
+
+                        <?php ActiveForm::end(); ?>
                     </div>
                 </div>
             </div>
@@ -89,3 +107,12 @@ use yii\captcha\Captcha;
         </div>
     </div>
 </div>
+
+<?php if (Yii::$app->session->hasFlash('contactFormSubmitted')):?>
+<?php $this->registerJs("
+Swal.fire({
+  title: 'Сообщение отправлено!',
+  text: 'Мы ответим Вам в ближайшее время.'
+  });
+", \yii\web\View::POS_READY);?>
+<?php endif;?>

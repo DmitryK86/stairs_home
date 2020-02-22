@@ -16,20 +16,26 @@ class ContactForm extends Model
     public $body;
     public $verifyCode;
 
+    private $isCaptchaEnabled = false;
+
 
     /**
      * @return array the validation rules.
      */
     public function rules()
     {
-        return [
+        $rules = [
             // name, email, subject and body are required
             [['name', 'email', 'subject', 'body'], 'required'],
             // email has to be a valid email address
             ['email', 'email'],
-            // verifyCode needs to be entered correctly
-            ['verifyCode', 'captcha'],
         ];
+
+        if ($this->isCaptchaEnabled()){
+            $rules[] = ['verifyCode', 'captcha'];
+        }
+
+        return $rules;
     }
 
     /**
@@ -38,28 +44,28 @@ class ContactForm extends Model
     public function attributeLabels()
     {
         return [
-            'verifyCode' => 'Verification Code',
+            'name' => 'Имя',
+            'subject' => 'Тема',
+            'body' => 'Текст',
+            'verifyCode' => 'Проверочный код',
         ];
     }
 
-    /**
-     * Sends an email to the specified email address using the information collected by this model.
-     * @param string $email the target email address
-     * @return bool whether the model passes validation
-     */
-    public function contact($email)
-    {
-        if ($this->validate()) {
-            Yii::$app->mailer->compose()
-                ->setTo($email)
-                ->setFrom([Yii::$app->params['senderEmail'] => Yii::$app->params['senderName']])
-                ->setReplyTo([$this->email => $this->name])
-                ->setSubject($this->subject)
-                ->setTextBody($this->body)
-                ->send();
-
-            return true;
+    public function save(){
+        if ($this->hasErrors()){
+            return false;
         }
-        return false;
+
+        $model = new Messages();
+        $model->name = $this->name;
+        $model->email = $this->email;
+        $model->subject = $this->subject;
+        $model->text = $this->body;
+
+        return $model->save();
+    }
+
+    public function isCaptchaEnabled(){
+        return $this->isCaptchaEnabled;
     }
 }
