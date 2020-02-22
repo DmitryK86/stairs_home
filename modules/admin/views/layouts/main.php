@@ -48,10 +48,10 @@ $messageCount = $manager->getNewMessagesCount();
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </a>
-              <div class="navbar-custom-menu">
+                <?php if (!Yii::$app->user->isGuest):?>
+                    <div class="navbar-custom-menu">
                   <?php $this->registerCss('.navbar-nav>.messages-menu>.dropdown-menu>li .menu>li>a>h4{margin:0;}.navbar-nav>.messages-menu>.dropdown-menu>li .menu>li>a>p{margin:0;}');?>
-                  <?php
-                      echo Nav::widget([
+                  <?= Nav::widget([
                           'options' => ['class' => 'nav navbar-nav'],
                           'encodeLabels' => false,
                           'items' => [
@@ -92,6 +92,7 @@ $messageCount = $manager->getNewMessagesCount();
                       ]);
                   ?>
               </div>
+                <?php endif;?>
             </nav>
         </header>
 

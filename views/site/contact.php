@@ -79,7 +79,7 @@ SweetAlertAsset::register($this);
                         <?php endif;?>
 
                         <div class="form-group">
-                            <?= Html::submitButton('Submit', ['class' => 'btn contact_button', 'name' => 'contact-button']) ?>
+                            <?= Html::submitButton('Отправить', ['class' => 'btn contact_button', 'name' => 'contact-button']) ?>
                         </div>
 
                         <?php ActiveForm::end(); ?>
