@@ -273,7 +273,6 @@ use yii\helpers\Url;
                         <div class="booking_item">
                             <div class="background_image" style="background-image:url(images/stairs_1.jpg)"></div>
                             <div class="booking_overlay trans_200"></div>
-                            <div class="booking_price">от $3000</div>
                             <div class="booking_link">
                                 <a href="<?= Url::to(['site/about', '#' => 'stairs'])?>">
                                     <?= Yii::t('app', 'Лестницы');?>
@@ -285,7 +284,6 @@ use yii\helpers\Url;
                         <div class="booking_item">
                             <div class="background_image" style="background-image:url(images/stairs_2.jpg)"></div>
                             <div class="booking_overlay trans_200"></div>
-                            <div class="booking_price">от $4000</div>
                             <div class="booking_link">
                                 <a href="<?= Url::to(['site/about', '#' => 'stairs'])?>">
                                     <?= Yii::t('app', 'Ступени');?>
@@ -297,10 +295,19 @@ use yii\helpers\Url;
                         <div class="booking_item">
                             <div class="background_image" style="background-image:url(images/stairs_3.jpg)"></div>
                             <div class="booking_overlay trans_200"></div>
-                            <div class="booking_price">от $6000</div>
                             <div class="booking_link">
                                 <a href="<?= Url::to(['site/about', '#' => 'gazebo'])?>">
                                     <?= Yii::t('app', 'Уютные беседки');?>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="booking_item">
+                            <div class="background_image" style="background-image:url(images/sayna.jpg)"></div>
+                            <div class="booking_overlay trans_200"></div>
+                            <div class="booking_link">
+                                <a href="<?= Url::to(['site/about', '#' => 'sauny'])?>">
+                                    <?= Yii::t('app', 'Сауны');?>
                                 </a>
                             </div>
                         </div>

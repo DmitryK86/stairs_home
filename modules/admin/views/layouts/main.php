@@ -84,7 +84,12 @@ $messageCount = $manager->getNewMessagesCount();
                                   ],
                               ],
                               [
-                                  'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
+                                  'label' => 'Перейти на сайт',
+                                  'url' => ['/'],
+                                  'linkOptions' => ['target' => '_blank']
+                              ],
+                              [
+                                  'label' => 'Выход (' . Yii::$app->user->identity->username . ')',
                                   'url' => ['/site/logout'],
                                   'linkOptions' => ['data-method' => 'post']
                               ],
