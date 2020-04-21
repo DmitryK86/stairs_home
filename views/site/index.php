@@ -214,7 +214,7 @@ use yii\helpers\Url;
                                     Идеальное соотношение<br>цена/качество
                                 </a>
                             </div>
-                            <div class="testimonial_image"><img src="images/user_2.jpg" alt=""></div>
+                            <div class="testimonial_image"><img src="images/user_2.jpeg" alt=""></div>
                             <div class="testimonial_author"><a href="#">Максим Глушко</a></div>
                             <div class="testimonial_text">
                                 <p>
